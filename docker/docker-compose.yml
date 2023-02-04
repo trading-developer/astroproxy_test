@@ -1,0 +1,42 @@
+version: '3'
+services:
+    app-nginx:
+        image: nginx:latest
+        volumes:
+            - ./images/nginx:/etc/nginx/conf.d
+            - ../app:/var/www/app
+            - ./logs/nginx:/var/log/nginx
+        depends_on:
+            - app-php
+        ports:
+            - "80:80"
+        networks:
+            - astroproxy
+
+    app-php:
+        build: ./images/php
+        volumes:
+            - ../app:/var/www/app
+        networks:
+            - astroproxy
+
+    app-postgres:
+        build:
+            context: images/postgres
+            dockerfile: Dockerfile
+        volumes:
+            - ./data/postgres/pg_data:/var/lib/postgresql/data
+            - ./data/postgres/dumps:/tmp/
+            - ./images/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+        ports:
+            - "5432:5432"
+        environment:
+            POSTGRES_DB: ${DB_DATABASE}
+            POSTGRES_USER: ${DB_USERNAME}
+            POSTGRES_PASSWORD: ${DB_PASSWORD}
+            POSTGRES_PORT: ${DB_PORT}
+        networks:
+            - astroproxy
+networks:
+    astroproxy:
+        driver: bridge
