@@ -17,6 +17,12 @@
 2. make tests
 ```
 
+## Информация
+```
+1. https://api.postman.com/collections/23579261-1d8ea253-b102-469b-a089-c02548c33097?access_key=PMAT-01GREX6QHASKT9WMTHN5K0G6KN - постман API запросы
+2. 
+```
+
 ## Описание задачи
 
 Реализовать CRUD-интерфейс списка пользователей и их платежей на Laravel и Vue.js

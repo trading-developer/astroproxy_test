@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y \
         libxml2-dev \
         zip \
         git && \
-        docker-php-ext-install -j$(nproc) iconv pdo pdo_pgsql pgsql bcmath intl zip soap && \
+        docker-php-ext-install -j$(nproc) xml iconv pdo pdo_pgsql pgsql bcmath intl zip soap && \
         docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql  && \
         docker-php-ext-enable pdo_pgsql && \
         apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
