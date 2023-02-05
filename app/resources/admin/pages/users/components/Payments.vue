@@ -24,8 +24,10 @@ export default {
         payments:Array
     },
     computed: {
-        total() {
-             return Object.values(this.payments).reduce((acc, value) => acc + parseFloat(value.total), 0)
+        total(x) {
+             const total = Object.values(this.payments).reduce((acc, value) => acc + parseFloat(value.total), 0);
+
+             return Math.round(total, 2)
         },
     },
 };

@@ -4,6 +4,8 @@ import AuthPage from "../pages/auth/AuthPage.vue";
 import HomePage from "../pages/HomePage.vue";
 import UsersPage from "../pages/users/Index.vue";
 import UserViewPage from "../pages/users/View.vue";
+import UserCreatePage from "../pages/users/Create.vue";
+import ServicesPage from "../pages/services/Index.vue";
 
 const adminPrefix = '/admin/'
 
@@ -41,6 +43,22 @@ const routes = [
             require_auth: true,
         },
         component: UserViewPage
+    },
+    {
+        path: adminPrefix + 'users/create',
+        name: 'UserCreate',
+        meta: {
+            require_auth: true,
+        },
+        component: UserCreatePage
+    },
+    {
+        path: adminPrefix + 'services',
+        name: 'Services',
+        meta: {
+            require_auth: true,
+        },
+        component: ServicesPage
     },
 
 

@@ -2,10 +2,8 @@
 
 namespace App\Repositories\User;
 
-use App\Http\Resources\User\UserResource;
 use App\Models\Payment;
 use App\Models\User;
-use function Symfony\Component\String\u;
 
 class UserRepository
 {
@@ -16,11 +14,9 @@ class UserRepository
      */
     public function index($request)
     {
-        $perPage = $request->input('per_page', 10);
+        $perPage = $request->input('per_page', 20);
 
-        $users = User::query();
-
-        return $users->paginate($perPage);
+        return User::query()->latest()->paginate($perPage);
     }
 
     /**

@@ -37,6 +37,7 @@ class UserController extends Controller
      */
     public function store(StoreRequest $request)
     {
+        //Добавить политики
         return new UserResource($this->userService->create($request->validated()));
     }
 
@@ -67,6 +68,8 @@ class UserController extends Controller
      */
     public function update(UpdateRequest $request, User $user)
     {
+        //Добавить политики
+
         $this->userService->update($user->id, $request->validated());
 
         return new UserResource($user);
@@ -80,6 +83,8 @@ class UserController extends Controller
      */
     public function delete(User $user)
     {
+        //Добавить политики
+
         return $this->userService->delete($user->id);
     }
 

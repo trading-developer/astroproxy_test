@@ -20,7 +20,7 @@
             </div>
 
             <button class="w-100 btn btn-lg btn-primary" type="button"  @click="auth">Войти</button>
-            <p class="mt-5 mb-3 text-muted">&copy; 2023</p>
+            <p class="mt-5 mb-3 text-muted">Тестовое задание &middot; &copy; 2023</p>
         </form>
     </main>
 </template>

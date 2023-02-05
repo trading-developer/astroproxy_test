@@ -1,4 +1,11 @@
 <template>
+
+    <button type="button" class="btn btn-light text-dark me-2 mt-4"
+            @click="$router.push({name: 'UserCreate'})">Добавить пользователя
+    </button>
+
+    <hr class="my-4">
+
     <table class="table">
         <thead>
         <tr>
@@ -27,9 +34,11 @@
 
     <nav class="blog-pagination" aria-label="Pagination" v-if="users.length">
         <button :class="{'btn btn-outline-primary rounded-pill': true,
-            'disabled':current_page === 1}" @click="prev">Назад</button>
-        <button :class="{'btn btn-outline-secondary rounded-pill': true,
-            'disabled':current_page === meta?.last_page}" @click="next">Вперед</button>
+            'disabled':current_page === 1}" @click="prev">Назад
+        </button>
+        <button :class="{'btn btn-outline-primary rounded-pill': true,
+            'disabled':current_page === meta?.last_page}" @click="next">Вперед
+        </button>
     </nav>
 </template>
 
@@ -60,7 +69,7 @@ export default {
             this.getData();
         },
         remove(id) {
-            if (confirm('Are you sure ?')) {
+            if (confirm('Вы уверены ?')) {
                 axios.delete(`/api/user/${id}`).then(data => {
                     this.getData();
                 });

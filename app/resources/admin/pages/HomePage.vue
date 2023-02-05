@@ -8,9 +8,9 @@
                 <div>
                     <h3 class="fs-2">Услуги</h3>
                     <p>Раздел со списком услуг</p>
-                    <a href="#" class="btn btn-dark">
+                    <button class="btn btn-primary"  @click="$router.push({name: 'Services'})">
                         Перейти
-                    </a>
+                    </button>
                 </div>
             </div>
             <div class="col d-flex align-items-start">
